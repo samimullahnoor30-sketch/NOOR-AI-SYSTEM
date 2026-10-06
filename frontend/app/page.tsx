@@ -1,3 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 const services = [
   {
     title: "CV & Job Application",
@@ -57,7 +63,7 @@ const services = [
   },
 ];
 
-const statistics = [
+const baseStatistics = [
   {
     title: "Total Customers",
     value: "0",
@@ -76,15 +82,40 @@ const statistics = [
     description: "Successfully completed",
     icon: "✅",
   },
-  {
-    title: "Available Services",
-    value: "8",
-    description: "Professional services",
-    icon: "⚡",
-  },
 ];
 
 export default function Home() {
+  const [serviceCount, setServiceCount] = useState(0);
+
+  useEffect(() => {
+    async function loadServiceCount() {
+      try {
+        const response = await fetch(`${API_URL}/api/services/`);
+
+        if (!response.ok) {
+          throw new Error("Failed to load services.");
+        }
+
+        const data = await response.json();
+        setServiceCount(data.length);
+      } catch (error) {
+        console.error("Failed to load service count:", error);
+      }
+    }
+
+    loadServiceCount();
+  }, []);
+
+  const statistics = [
+    ...baseStatistics,
+    {
+      title: "Available Services",
+      value: String(serviceCount),
+      description: "Professional services",
+      icon: "⚡",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* Background Effects */}
@@ -138,7 +169,7 @@ export default function Home() {
               </a>
 
               <a
-                href="#services"
+                href="/services"
                 className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
                 <span>🧩</span>
@@ -272,7 +303,7 @@ export default function Home() {
                   </a>
 
                   <a
-                    href="#services"
+                    href="/services"
                     className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                   >
                     Explore Services
@@ -357,7 +388,10 @@ export default function Home() {
                         href={
                           service.title === "Documents & Files"
                             ? "/customers"
-                            : "#"
+                            : service.title === "CV & Job Application" ||
+                                service.title === "Research & Monograph"
+                              ? "/services"
+                              : "#"
                         }
                         className="mt-5 inline-flex items-center text-sm font-bold text-white transition hover:text-blue-300"
                       >

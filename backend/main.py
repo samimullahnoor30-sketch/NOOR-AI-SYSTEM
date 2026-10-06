@@ -1,7 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.core.database import Base, engine
 from app.api.routes.customers import router as customers_router
+from app.api.routes.services import router as services_router
+from app.models.customer import Customer
+from app.models.service import Service
+
+
+Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(
@@ -23,6 +30,7 @@ app.add_middleware(
 
 
 app.include_router(customers_router)
+app.include_router(services_router)
 
 
 @app.get("/")

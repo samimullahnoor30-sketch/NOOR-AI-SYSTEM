@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -139,7 +140,6 @@ export default function Home() {
                 <h1 className="font-bold tracking-wide">
                   NOOR AI SYSTEM
                 </h1>
-
                 <p className="text-xs text-slate-400">
                   Professional Platform
                 </p>
@@ -177,7 +177,7 @@ export default function Home() {
               </a>
 
               <a
-                href="#projects"
+                href="/projects"
                 className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
                 <span>📋</span>
@@ -185,7 +185,7 @@ export default function Home() {
               </a>
 
               <a
-                href="#documents"
+                href="/documents"
                 className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-400 transition hover:bg-white/10 hover:text-white"
               >
                 <span>📁</span>
@@ -227,7 +227,6 @@ export default function Home() {
                   <p className="truncate text-sm font-semibold">
                     System Administrator
                   </p>
-
                   <p className="truncate text-xs text-slate-400">
                     NOOR AI SYSTEM
                   </p>
@@ -246,7 +245,6 @@ export default function Home() {
                 <p className="text-sm text-slate-400">
                   Welcome back
                 </p>
-
                 <h2 className="mt-1 text-xl font-bold sm:text-2xl">
                   NOOR AI SYSTEM Dashboard
                 </h2>
@@ -308,6 +306,13 @@ export default function Home() {
                   >
                     Explore Services
                   </a>
+
+                  <a
+                    href="/documents"
+                    className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    Manage Documents
+                  </a>
                 </div>
               </div>
             </section>
@@ -324,7 +329,6 @@ export default function Home() {
                       <p className="text-sm text-slate-400">
                         {stat.title}
                       </p>
-
                       <p className="mt-3 text-3xl font-black">
                         {stat.value}
                       </p>
@@ -348,11 +352,9 @@ export default function Home() {
                 <p className="text-sm font-semibold uppercase tracking-widest text-blue-400">
                   Professional Services
                 </p>
-
                 <h3 className="mt-2 text-2xl font-bold sm:text-3xl">
                   Everything you need in one platform
                 </h3>
-
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-400">
                   Choose a service to manage your professional work through
                   the NOOR AI SYSTEM.
@@ -387,7 +389,7 @@ export default function Home() {
                       <a
                         href={
                           service.title === "Documents & Files"
-                            ? "/customers"
+                            ? "/documents"
                             : service.title === "CV & Job Application" ||
                                 service.title === "Research & Monograph"
                               ? "/services"
@@ -412,7 +414,6 @@ export default function Home() {
                     <p className="text-sm text-slate-400">
                       System Status
                     </p>
-
                     <h3 className="mt-1 text-xl font-bold">
                       Platform Overview
                     </h3>
@@ -428,7 +429,6 @@ export default function Home() {
                     <p className="text-xs text-slate-500">
                       Backend
                     </p>
-
                     <p className="mt-2 font-semibold text-emerald-400">
                       Connected
                     </p>
@@ -438,7 +438,6 @@ export default function Home() {
                     <p className="text-xs text-slate-500">
                       Database
                     </p>
-
                     <p className="mt-2 font-semibold text-emerald-400">
                       Ready
                     </p>
@@ -448,7 +447,6 @@ export default function Home() {
                     <p className="text-xs text-slate-500">
                       AI Engine
                     </p>
-
                     <p className="mt-2 font-semibold text-amber-400">
                       Preparing
                     </p>
@@ -474,7 +472,6 @@ export default function Home() {
                   <p className="text-xs text-slate-500">
                     Platform
                   </p>
-
                   <p className="mt-1 text-sm font-semibold">
                     Noor Professional Online Service
                   </p>
@@ -487,7 +484,6 @@ export default function Home() {
               <p className="text-sm text-slate-400">
                 Noor — From Service to Success, Always With You
               </p>
-
               <p className="mt-2 text-xs text-slate-600">
                 NOOR AI SYSTEM • Professional Management Platform
               </p>

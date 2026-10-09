@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, Column, DateTime, Integer, String, Text
+from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, Text
 
 from app.models.base import Base
 
@@ -28,6 +28,7 @@ class Project(Base):
 
     customer_id = Column(
         Integer,
+        ForeignKey("customers.id"),
         nullable=True,
         index=True,
     )

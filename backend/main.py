@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import Base, engine
 from app.api.routes.customers import router as customers_router
 from app.api.routes.services import router as services_router
+from app.api.routes.projects import router as projects_router
+from app.api.routes.projects import router as projects_router
 from app.models.customer import Customer
 from app.models.service import Service
 
@@ -31,7 +33,7 @@ app.add_middleware(
 
 app.include_router(customers_router)
 app.include_router(services_router)
-
+app.include_router(projects_router)
 
 @app.get("/")
 def home():
